@@ -1,0 +1,61 @@
+.container {
+    width: 1106px;
+    min-height: 100vh;
+    background-color: white;
+    padding: 67px 130px;
+    margin: auto;
+}
+
+.container:has(.modalGift) {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.container .groupGiftItem {
+    padding-top: 75px;
+}
+.container .groupGiftItem .rowCreate {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.container .groupGiftItem .rowCreate h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #383838;
+}
+
+.container .groupGiftItem .rowCreate button {
+    width: 85px;
+    height: 57px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #FF4D00;
+}
+
+.container .groupGiftItem .rowCreate button:hover {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.gifts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+    padding-top: 20px;
+}
+    
+.gift1 { grid-area: 1 / 1 / 2 / 2; }
+.gift2 { grid-area: 1 / 2 / 2 / 3; }
+.gift3 { grid-area: 1 / 3 / 2 / 4; }
+.gift4 { grid-area: 1 / 4 / 2 / 5; }
+.gift5 { grid-area: 2 / 1 / 3 / 2; }
+.gift6 { grid-area: 2 / 2 / 3 / 3; }
+.gift7 { grid-area: 2 / 3 / 3 / 4; }
+.gift8 { grid-area: 2 / 4 / 3 / 5; }

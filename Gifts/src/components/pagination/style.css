@@ -1,0 +1,43 @@
+.pagination {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.pagination .center {
+    display: flex;
+    gap: 12px;
+    align-items: end;
+}
+
+.pagination .center .pages {
+    display: flex;
+    gap: 12px;
+}
+
+.pagination .center .pages button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #B4B4B4;
+    border-radius: 10px;
+    color: #B4B4B4;
+    background-color: transparent;
+}
+
+.pagination .center .pages button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #BBBBBB;
+}
+
+.pagination .center .morePages {
+    font-size: 14px;
+    color: #383838;
+}
+
+.pagination .iconLeft:hover,
+.pagination .iconRight:hover {
+    cursor: pointer;
+} 

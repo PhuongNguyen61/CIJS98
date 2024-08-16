@@ -1,0 +1,20 @@
+.likeNow {
+    width: 100%;
+}
+
+.likeNow h1 {
+    color: #E6656E;
+    font-size: 32px;
+    font-weight: 500;
+    padding-bottom: 56px;
+}
+
+.likeNow .banner {
+    display: flex;
+    align-items: center;
+}
+
+.likeNow .banner p {
+    padding-left: 20px;
+    font-size: 24px;
+}

@@ -1,0 +1,66 @@
+.filter {
+    width: 520px;
+    padding-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.filter h1 {
+    color: #E6656E;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.filter .rowInput {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border: 1px solid #00000030;
+    border-radius: 8px;
+}
+
+.filter .rowInput input {
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+
+.filter .filterByCondition {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter .filterByCondition .rowSelect {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 12px 24px;
+    border: 1px solid #CDCDCD;
+    border-radius: 8px;
+}
+
+.filter .filterByCondition .rowSelect select {
+    width: 100%;
+    border: none;
+    outline: none;
+    appearance: none;
+    overflow: visible;
+    background-color: transparent;
+    font-size: 14px;
+    padding-right: 22px;
+}
+
+.filter .filterByCondition .rowSelect select:hover,
+.filter .filterByCondition .iconBar:hover {
+    cursor: pointer;
+}
+
+.filter .filterByCondition .rowSelect .iconDown {
+    position: absolute;
+    right: 22px;
+    /* z-index: -1; */
+}
