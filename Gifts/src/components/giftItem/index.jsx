@@ -3,7 +3,10 @@ import './style.css'
 
 const GiftItem = (props) => {
     const handleClick = () => {
-        alert (`${props.gift.name} - ${Number(props.gift.price).toLocaleString()} VND`)
+        props.openModalGift({
+            open: true,
+            data: props.gift
+          })
     }
     return (
         <div className='giftItem' onClick={handleClick}>

@@ -8,9 +8,23 @@ import {listGift} from './data'
 import './App.css'
 
 function App() {
+  const [modalGift, setModalGift] = useState({
+    open: false,
+    data: null
+  })
+  let viewModalGift = null
+  if (modalGift.open) {
+    viewModalGift = <ModalGift gift={modalGift.data} closeModalGift={() => {
+      setModalGift({
+        open: false,
+        data: null
+      })
+    }} />
+  }
+
   return (
     <div className='container'>
-      <ModalGift />
+      {viewModalGift}
       <LikeNow />
       <Filter />
       <div className='groupGiftItem'>
@@ -20,28 +34,28 @@ function App() {
         </div>
         <div className='gifts'>
           <div class="gift1">
-            <GiftItem gift={listGift[0]} />
+            <GiftItem gift={listGift[0]} openModalGift={setModalGift} />
           </div>
           <div class="gift2">
-            <GiftItem gift={listGift[1]} />
+            <GiftItem gift={listGift[1]} openModalGift={setModalGift} />
           </div>
           <div class="gift3">
-            <GiftItem gift={listGift[2]} />
+            <GiftItem gift={listGift[2]} openModalGift={setModalGift} />
           </div>
           <div class="gift4">
-            <GiftItem gift={listGift[3]} />
+            <GiftItem gift={listGift[3]} openModalGift={setModalGift} />
           </div>
           <div class="gift5">
-            <GiftItem gift={listGift[4]} />
+            <GiftItem gift={listGift[4]} openModalGift={setModalGift} />
           </div>
           <div class="gift6">
-            <GiftItem gift={listGift[5]} />
+            <GiftItem gift={listGift[5]} openModalGift={setModalGift} />
           </div>
           <div class="gift7">
-            <GiftItem gift={listGift[6]} />
+            <GiftItem gift={listGift[6]} openModalGift={setModalGift} />
           </div>
           <div class="gift8">
-            <GiftItem gift={listGift[7]} />
+            <GiftItem gift={listGift[7]} openModalGift={setModalGift} />
           </div>
         </div>
       </div>
