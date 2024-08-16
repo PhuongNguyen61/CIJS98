@@ -6,11 +6,6 @@
     margin: auto;
 }
 
-.container:has(.modalGift) {
-    height: 100vh;
-    overflow-y: hidden;
-}
-
 .container .groupGiftItem {
     padding-top: 75px;
 }
