@@ -6,7 +6,8 @@
     margin: auto;
 }
 
-.container:has(.modalGift) {
+.container:has(.modalGift),
+.container:has(.modalCreateGift) {
     height: 100vh;
     overflow-y: hidden;
 }

@@ -4,10 +4,12 @@ import Filter from './components/filter'
 import GiftItem from './components/giftItem'
 import Pagination from './components/pagination'
 import ModalGift from './components/modalGift'
+import ModalCreateGift from './components/modalCreateGift'
 import {listGift} from './data'
 import './App.css'
 
 function App() {
+  // modalGift
   const [modalGift, setModalGift] = useState({
     open: false,
     data: null
@@ -22,15 +24,39 @@ function App() {
     }} />
   }
 
+  // modalCreateGift
+  const [modalCreateGift, setModalCreateGift] = useState(false)
+  const [newGift, setNewGift] = useState({
+    name: '',
+    image: '',
+    rating: '',
+    price: '',
+    saleOff: '',
+    status: '',
+    type: '',
+    category: '',
+    desc: '',
+    createdAt: new Date()
+  })
+  let viewModalCreateGift =null
+  if (modalCreateGift) {
+    viewModalCreateGift = <ModalCreateGift
+    closeModalCreateGift={() => {
+      setModalCreateGift(false)}}
+    gift={newGift}
+    setNewGift={setNewGift}/>
+  }
+
   return (
     <div className='container'>
+      {viewModalCreateGift}
       {viewModalGift}
       <LikeNow />
       <Filter />
       <div className='groupGiftItem'>
         <div className='rowCreate'>
           <h1>Quà tặng</h1>
-          <button>Tạo</button>
+          <button onClick={() => {setModalCreateGift(true)}}>Tạo</button>
         </div>
         <div className='gifts'>
           <div class="gift1">

@@ -1,0 +1,80 @@
+/* modalCreateGift */
+.modalCreateGift {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    /* overflow-y: scroll; */
+}
+
+/* content */
+.modalCreateGift .content {
+    width: 850px;
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* top */
+.modalCreateGift .content .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalCreateGift .content .top .btnClose {
+    width: 37.33px;
+    height: 37.33px;
+    background-color: transparent;
+    border: none;
+}
+
+.modalCreateGift .content .top .btnClose:hover {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+/* formCreateGift */
+.modalCreateGift .content .formCreateGift {
+    margin-top: 20px;
+}
+
+.modalCreateGift .content .formCreateGift .row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    gap: 5px;
+}
+
+.modalCreateGift .content .formCreateGift .row label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modalCreateGift .content .formCreateGift .row input {
+    padding: 10px;
+    border: 1px solid #CDCDCD;
+    border-radius: 10px;
+    outline: none;
+}
+
+.modalCreateGift .content .formCreateGift button {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #0089FF;
+    border: none;
+    border-radius: 10px;
+}
+
+.modalCreateGift .content .formCreateGift button:hover {
+    cursor: pointer;
+    opacity: 0.75;
+}

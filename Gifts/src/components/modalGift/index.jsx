@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import IconTrash from '../../icons/iconTrash'
 import IconClose from '../../icons/iconClose'
 import IconStarFull from '../../icons/iconStarFull'
@@ -51,6 +52,17 @@ const getRating = {
 }
 
 const ModalGift = (props) => {
+    const [comment, setComment] = useState('')
+    const giftName = props.gift.name
+    const handleCommentChange = (e) => {
+        setComment(e.target.value)
+    }
+    const handleSubmit = () => {
+        console.log('comment:', comment)
+        console.log('name:', giftName)
+        setComment('')
+    }
+
     return (
         <div className='modalGift'>
             <div className='content'>
@@ -87,7 +99,7 @@ const ModalGift = (props) => {
                             </div>
                         </div>
                     </div>
-                    <p className='desc'>{props.gift.description}</p>
+                    <p className='desc'>{props.gift.desc}</p>
                 </div>
                 <div className='groupNote'>
                     <div className='typeNote'>
@@ -95,14 +107,14 @@ const ModalGift = (props) => {
                             <img src={UserImage1} alt="" />
                             <p>John Doe</p>
                         </div>
-                        <textarea name="" id="">Sản phẩm này sẽ mua tặng cho gia đình sau ngày 15 nè!</textarea>
+                        <textarea value={comment} onChange={handleCommentChange} placeholder='Viết bình luận...'></textarea>
                         <div className='groupAction2'>
                             <div className="groupMakeStyle">
                                 <IconMakeBold />
                                 <IconMakeItalic />
                                 <IconMakeLink />
                             </div>
-                            <button className='comment'>Comment</button>
+                            <button className='comment' onClick={handleSubmit}>Comment</button>
                         </div>
                     </div>
                     <p style={{fontSize:'26px', fontWeight:'600'}}>Ghi chú</p>
