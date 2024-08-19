@@ -53,13 +53,12 @@ const getRating = {
 
 const ModalGift = (props) => {
     const [comment, setComment] = useState('')
-    const giftName = props.gift.name
     const handleCommentChange = (e) => {
         setComment(e.target.value)
     }
     const handleSubmit = () => {
         console.log('comment:', comment)
-        console.log('name:', giftName)
+        console.log('name:', props.gift.name)
         setComment('')
     }
 

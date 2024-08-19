@@ -10,8 +10,8 @@ const ModalCreateGift = (props) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.closeModalCreateGift();
         console.log(props.gift);
+        props.closeModalCreateGift();
     }
     return (
         <div className='modalCreateGift'>
