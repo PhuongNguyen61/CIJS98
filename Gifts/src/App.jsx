@@ -45,7 +45,14 @@ function App() {
     closeModalCreateGift={() => {
       setModalCreateGift(false)}}
     gift={newGift}
-    setNewGift={setNewGift}/>
+    setNewGift={setNewGift}
+    onSubmit={(newGift) => {
+      setGift([...gift, {
+        ...newGift,
+        id: new Date().getTime(),
+        createdAt: new Date()
+      }])
+    }}/>
   }
 
   return (
@@ -60,30 +67,15 @@ function App() {
           <button onClick={() => {setModalCreateGift(true)}}>Tạo</button>
         </div>
         <div className='gifts'>
-          <div class="gift1">
-            <GiftItem gift={listGift[0]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift2">
-            <GiftItem gift={listGift[1]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift3">
-            <GiftItem gift={listGift[2]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift4">
-            <GiftItem gift={listGift[3]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift5">
-            <GiftItem gift={listGift[4]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift6">
-            <GiftItem gift={listGift[5]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift7">
-            <GiftItem gift={listGift[6]} openModalGift={setModalGift} />
-          </div>
-          <div class="gift8">
-            <GiftItem gift={listGift[7]} openModalGift={setModalGift} />
-          </div>
+          {gift
+          .sort((a, b) => {
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          })
+          .map((item, idx) => {
+            return <div key={item.id} class={`gift${idx+1}`}>
+            <GiftItem gift={item} openModalGift={setModalGift} />
+            </div>
+          })}
         </div>
       </div>
       <Pagination />

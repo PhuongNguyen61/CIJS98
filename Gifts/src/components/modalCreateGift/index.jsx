@@ -11,6 +11,7 @@ const ModalCreateGift = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(props.gift);
+        props.onSubmit(props.gift)
         props.closeModalCreateGift();
     }
     return (
