@@ -26,6 +26,7 @@ function App() {
 
   // modalCreateGift
   const [modalCreateGift, setModalCreateGift] = useState(false)
+  const [gift, setGift] = useState(listGift)
   const [newGift, setNewGift] = useState({
     name: '',
     image: '',
