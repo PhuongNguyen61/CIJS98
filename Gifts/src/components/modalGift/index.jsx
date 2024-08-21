@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import IconTrash from '../../icons/iconTrash'
 import IconClose from '../../icons/iconClose'
 import IconStarFull from '../../icons/iconStarFull'
@@ -11,6 +11,7 @@ import IconMakeItalic from '../../icons/iconMakeItalic'
 import IconMakeLink from '../../icons/iconMakeLink'
 import UserImage1 from '/public/images/userImage1.png'
 import UserImage2 from '/public/images/userImage2.png'
+import { Store } from '../../Store'
 import './style.css'
 
 const getRating = {
@@ -61,12 +62,16 @@ const ModalGift = (props) => {
         console.log('name:', props.gift.name)
         setComment('')
     }
+    const store = useContext(Store)
 
     return (
         <div className='modalGift'>
             <div className='content'>
                 <div className='top'>
-                    <button className='btnDelete'><IconTrash /></button>
+                    <button className='btnDelete' onClick={() => {
+                        store.listGift.splice(props.index, 1)
+                        store.setListGift([...store.listGift])
+                    }}><IconTrash /></button>
                     <button className='btnClose' onClick={props.closeModalGift}><IconClose /></button>
                 </div>
                 <div className='giftInfo'>

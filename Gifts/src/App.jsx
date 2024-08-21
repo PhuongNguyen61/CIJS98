@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import LikeNow from './components/likeNow'
 import Filter from './components/filter'
 import GiftItem from './components/giftItem'
@@ -6,27 +6,13 @@ import Pagination from './components/pagination'
 import ModalGift from './components/modalGift'
 import ModalCreateGift from './components/modalCreateGift'
 import {listGift} from './data'
+import { Store } from './Store'
 import './App.css'
 
 function App() {
-  // modalGift
-  const [modalGift, setModalGift] = useState({
-    open: false,
-    data: null
-  })
-  let viewModalGift = null
-  if (modalGift.open) {
-    viewModalGift = <ModalGift gift={modalGift.data} closeModalGift={() => {
-      setModalGift({
-        open: false,
-        data: null
-      })
-    }} />
-  }
-
   // modalCreateGift
   const [modalCreateGift, setModalCreateGift] = useState(false)
-  const [gift, setGift] = useState(listGift)
+  const store = useContext(Store)
   const [newGift, setNewGift] = useState({
     name: '',
     image: '',
@@ -47,7 +33,7 @@ function App() {
     gift={newGift}
     setNewGift={setNewGift}
     onSubmit={(newGift) => {
-      setGift([...gift, {
+      store.setListGift([...store.listGift, {
         ...newGift,
         id: new Date().getTime(),
         createdAt: new Date()
@@ -58,7 +44,6 @@ function App() {
   return (
     <div className='container'>
       {viewModalCreateGift}
-      {viewModalGift}
       <LikeNow />
       <Filter />
       <div className='groupGiftItem'>
@@ -67,13 +52,13 @@ function App() {
           <button onClick={() => {setModalCreateGift(true)}}>Tạo</button>
         </div>
         <div className='gifts'>
-          {gift
-          .sort((a, b) => {
-            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-          })
+          {store.listGift
+          // .sort((a, b) => {
+          //   return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          // })
           .map((item, idx) => {
             return <div key={item.id} class={`gift${idx+1}`}>
-            <GiftItem gift={item} openModalGift={setModalGift} />
+            <GiftItem gift={item} index={idx}/>
             </div>
           })}
         </div>
